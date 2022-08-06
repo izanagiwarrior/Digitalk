@@ -121,7 +121,7 @@ class AuthController extends Controller
      */
     public function messages(Request $request)
     {
-        $messages = Message::all();
+        $messages = Message::orderBy('id', 'DESC')->get();
 
         foreach($messages as $ms){
             if($ms->isSenderAnonymous == false){
