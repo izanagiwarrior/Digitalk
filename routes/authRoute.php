@@ -32,6 +32,14 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     //  ========================= AUTH ==============================
     //  =============================================================
 
+    $router->group(["prefix" => 'messages'], function () use ($router) {
+
+        // Matches /api/messages
+        // Function : Get All Messages
+        $router->get('/', 'AuthController@messages');
+
+    });
+
     $router->group(['middleware' => 'auth'], function () use ($router) {
 
         //  ====================== PROFILE ============================
@@ -47,11 +55,6 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         //  ====================== MESSAGES ============================
 
         $router->group(["prefix" => 'messages'], function () use ($router) {
-
-            // Matches /api/messages
-            // Function : Get All Messages
-            $router->get('/', 'AuthController@messages');
-
             // Matches /api/messages
             // Function : Send Messages
             $router->post('/', 'AuthController@send_messages');
