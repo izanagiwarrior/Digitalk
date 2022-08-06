@@ -131,7 +131,7 @@ class AuthController extends Controller
 
         return response()->json([
             'status' => 'success',
-            'message' => 'Message created successfully!',
+            'message' => 'Messages requested successfully!',
             'data' => $messages,
         ], 200);
     }
