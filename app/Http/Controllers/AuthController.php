@@ -21,7 +21,7 @@ class AuthController extends Controller
     {
         //validate incoming request
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|regex:/^[a-zA-Z0-9\s]+$/',
+            'name' => 'required|string|string',
             'email' => 'required|email|unique:users',
             'password' => 'required',
         ]);
@@ -146,8 +146,8 @@ class AuthController extends Controller
     {
         //validate incoming request
         $validator = Validator::make($request->all(), [
-            'receiver' => 'required|regex:/^[a-zA-Z0-9\s]+$/',
-            'message' => 'required|regex:/^[a-zA-Z0-9\s]+$/',
+            'receiver' => 'required|string',
+            'message' => 'required|string',
             'isSenderAnonymous' => 'required|boolean',
         ]);
         if ($validator->fails()) {
